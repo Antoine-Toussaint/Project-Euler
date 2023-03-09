@@ -1,3 +1,7 @@
+import _utilities
+
+
+@_utilities.benchmark
 def solve():
     n = 10001
     primes = [2]
@@ -12,5 +16,5 @@ def solve():
     return primes[-1]
 
 
-if __name__ == "__main__":
-    print(solve())
+if __name__ == '__main__':
+    solve()

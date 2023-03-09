@@ -1,5 +1,6 @@
 from functools import reduce
 from operator import mul
+import _utilities
 
 
 def union(s0, s1):
@@ -22,10 +23,11 @@ def prime_factors(n):
     return s
 
 
+@_utilities.benchmark
 def solve():
     factors = reduce(union, [prime_factors(i) for i in range(2, 21)], {})
     return reduce(mul, [k ** v for k, v in factors.items()])
 
 
-if __name__ == "__main__":
-    print(solve())
+if __name__ == '__main__':
+    solve()

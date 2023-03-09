@@ -2,6 +2,29 @@ max_tested = 2
 primes = [2]
 
 
+def benchmark(func):
+    """
+    Decorator to benchmark a function.
+    """
+
+    import time
+    import inspect
+
+    day = inspect.getfile(func).split('\\')[-1].split('.')[0]
+    time_length = 20
+
+    def wrapper(*args, **kwargs):
+        start = time.time() * 1000
+        result = func(*args, **kwargs)
+        end = time.time() * 1000
+        time_str = f"{end - start:.5f} ms"
+
+        print(f"{day} || {' ' * (time_length - len(time_str))}{time_str} || {result}")
+        return result
+
+    return wrapper
+
+
 def compute_primes_until(n: int):
     global max_tested, primes
 

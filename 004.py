@@ -1,4 +1,5 @@
 import math
+import _utilities
 
 
 def reversed_num(n: int):
@@ -14,6 +15,7 @@ def is_palyndrome(n: int):
     return reversed_num(n) == n
 
 
+@_utilities.benchmark
 def solve():
     for i in reversed(range(100, 1000)):
         f = float(i)
@@ -32,4 +34,5 @@ def naive():
     return m
 
 
-print(solve())
+if __name__ == '__main__':
+    solve()

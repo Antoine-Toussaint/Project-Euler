@@ -1,5 +1,5 @@
 from functools import reduce
-
+import _utilities
 
 number = """
 73167176531330624919225119674426574742355349194934
@@ -27,6 +27,7 @@ number = """
 digits = [int(x) for x in number if x.isdigit()]
 
 
+@_utilities.benchmark
 def solve():
     global digits
 
@@ -43,5 +44,5 @@ def solve():
     return max_product
 
 
-if __name__ == "__main__":
-    print(solve())
+if __name__ == '__main__':
+    solve()

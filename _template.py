@@ -3,7 +3,7 @@ import _utilities
 
 @_utilities.benchmark
 def solve():
-    return max(_utilities.prime_factorization(600851475143))
+    return
 
 
 if __name__ == '__main__':

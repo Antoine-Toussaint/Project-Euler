@@ -1,3 +1,7 @@
+import _utilities
+
+
+@_utilities.benchmark
 def solve():
     primes = [2]
     candidate = 3
@@ -16,5 +20,5 @@ def solve():
     return sum(primes)
 
 
-if __name__ == "__main__":
-    print(solve())
+if __name__ == '__main__':
+    solve()
