@@ -71,3 +71,85 @@ def reversed_num(n: int):
 
 def is_palyndrome(n: int):
     return reversed_num(n) == n
+
+
+def digits(n):
+    return [int(d) for d in str(n)]
+
+
+def primes_to(n):
+    """
+    @return: a list of primes from 0 to n included (sorted)
+    """
+
+    if n > max_tested:
+        compute_primes_until(n)
+
+    ps = []
+    for p in primes:
+        if p > n:
+            break
+        ps.append(p)
+
+    return ps
+
+
+def divisors(n):
+    """
+    @return: a list of all divisors of n (unsorted)
+    """
+    import math
+
+    if n < 3:
+        return []
+
+    div = []
+    rn = math.sqrt(n)
+    for i in range(2, math.floor(rn)):
+        if n % i == 0:
+            div.append(i)
+            div.append(n//i)
+    if n % rn == 0:
+        div.append(rn)
+
+    return div
+
+
+def prod(l):
+    p = 1
+    for el in l:
+        p *= el
+    return p
+
+
+def simplify_fraction(n, d):
+    pdn = prime_factorization(n)
+    pdd = prime_factorization(d)
+    common_div = []
+    for d in pdn:
+        if d in pdd:
+            pdd.remove(d)
+            common_div.append(d)
+    for d in common_div:
+        pdn.remove(d)
+    return (prod(pdn), prod(pdd))
+
+
+def is_prime(n):
+    import math
+    global primes
+
+    if n == 2 or n == 3:
+        return True
+    if n == 1 or n == 0:
+        return False
+
+    rn = math.ceil(math.sqrt(n))
+    if primes[-1] < rn:
+        compute_primes_until(rn+100)
+
+    for p in primes:
+        if p > rn:
+            return True
+        if n % p == 0:
+            return False

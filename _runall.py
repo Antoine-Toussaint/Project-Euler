@@ -7,7 +7,7 @@ if __name__ == "__main__":
     max_problem = max([int(f.split('.')[0]) for f in os.listdir(
         dir) if f.split('.')[0].isnumeric()])
 
-    for i in range(1, max_problem+1):
+    for i in range(18, max_problem+1):
         i_str = str(i)
         if len(i_str) < 3:
             i_str = "0" * (3 - len(i_str)) + i_str
