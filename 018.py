@@ -20,7 +20,8 @@ def solve_aux(w, h, s):
 
 @_utilities.benchmark
 def solve():
-    return solve_aux(0, 0, 0)
+    solve_aux(0, 0, 0)
+    return max_sum
 
 
 if __name__ == '__main__':
