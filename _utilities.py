@@ -1,5 +1,11 @@
+import platform
+
+
 max_tested = 2
 primes = [2]
+
+
+separator = "\\" if platform.system() == "Windows" else "/"
 
 
 def benchmark(func):
@@ -10,7 +16,7 @@ def benchmark(func):
     import time
     import inspect
 
-    day = inspect.getfile(func).split('\\')[-1].split('.')[0]
+    day = inspect.getfile(func).split(separator)[-1].split('.')[0]
     time_length = 20
 
     def wrapper(*args, **kwargs):
