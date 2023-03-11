@@ -55,7 +55,7 @@ def prime_factorization(n: int):
             compute_primes_until(primes[-1] + 200)
         p = primes[prime_index]
         while not (n % p):
-            n /= p
+            n //= p
             dividers.append(p)
         prime_index += 1
 
@@ -109,14 +109,17 @@ def divisors(n):
     if n < 3:
         return []
 
-    div = []
+    div = [1]
     rn = math.sqrt(n)
-    for i in range(2, math.floor(rn)):
+    limit = math.ceil(rn)
+    for i in range(2, limit):
         if n % i == 0:
             div.append(i)
             div.append(n//i)
-    if n % rn == 0:
-        div.append(rn)
+    if limit * limit == 0:
+        div.append(limit)
+
+    div.append(n)
 
     return div
 

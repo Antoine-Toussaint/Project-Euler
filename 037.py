@@ -18,6 +18,7 @@ def solve():
                 break
         if is_valid:
             som += p
+    return som
 
 
 if __name__ == '__main__':

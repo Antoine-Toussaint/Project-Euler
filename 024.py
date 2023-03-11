@@ -39,7 +39,7 @@ def solve():
     start = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     for i in range(1000000):
         start = next(start)
-    return start
+    return "".join([str(el) for el in start])
 
 
 if __name__ == '__main__':

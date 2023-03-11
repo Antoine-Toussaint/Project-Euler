@@ -2,28 +2,23 @@ import _utilities
 
 
 def abundant(n):
-    return [i for i in range(2, n) if sum(_utilities.divisors(i))+1 > i]
-
-
-def is_sum_of_two(l, n):
-    for el in l:
-        if n-el in l:
-            return True
-    return False
+    return [i for i in range(2, n) if sum(_utilities.divisors(i)) - i > i]
 
 
 @_utilities.benchmark
 def solve():
     ab = abundant(28123)
-    d = {}
-    for a0 in ab:
-        for a1 in ab:
-            som = a0 + a1
+    d = set()
+    for i in range(0, len(ab)):
+        for j in range(i, len(ab)):
+            som = ab[i] + ab[j]
             if som < 28123:
-                d[som] = 1
+                d.add(som)
 
-    return sum(list(range(0, 28123))) - sum(list(d.keys()))
+    return (28122 * 28123) // 2 - sum(d)
 
 
 if __name__ == '__main__':
     solve()
+
+# not 4190404
